@@ -157,13 +157,13 @@ const Index = () => {
             
             
             <div className="space-y-4 mb-8">
-              <Button variant="outline" onClick={() => handleFormOpen("a")} className="w-full h-12 text-sm border-2 border-muted-foreground text-left bg-amber-300 hover:bg-amber-200 text-slate-700">
+              <Button variant="outline" onClick={() => handleFormOpen("a")} className="w-full h-12 text-sm text-left bg-amber-300 hover:bg-amber-200 text-slate-700 border-0">
                 1. Choose 'Music Type'
               </Button>
-              <Button variant="outline" onClick={() => handleFormOpen("b")} className="w-full h-12 text-sm border-2 border-muted-foreground text-slate-700 bg-amber-300 hover:bg-amber-200">
+              <Button variant="outline" onClick={() => handleFormOpen("b")} className="w-full h-12 text-sm text-slate-700 bg-amber-300 hover:bg-amber-200 border-0">
                 2. Tell us 'What is the song about ?'
               </Button>
-              <Button variant="outline" onClick={() => handleFormOpen("c")} className="w-full h-12 text-sm border-2 border-muted-foreground text-slate-700 bg-amber-300 hover:bg-amber-200">
+              <Button variant="outline" onClick={() => handleFormOpen("c")} className="w-full h-12 text-sm text-slate-700 bg-amber-300 hover:bg-amber-200 border-0">
                 3. Add personal touch
               </Button>
             </div>
