@@ -140,28 +140,28 @@ const Index = () => {
       {/* Main Content - Three Columns */}
       <div className="flex flex-1 overflow-hidden">
         {/* Left Panel - Custom Creations */}
-        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-6 overflow-y-auto">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">
+        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto">
+          <h2 className="text-base font-semibold mb-2 text-gray-800">
             Some of our custom creations
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2">
             {customCreations.map((song) => (
-              <div key={song.id} className="flex items-center justify-between group hover:bg-yellow-200/50 p-2 rounded">
-                <div className="flex items-center gap-3">
+              <div key={song.id} className="flex items-center justify-between group hover:bg-yellow-200/50 p-1 rounded">
+                <div className="flex items-center gap-2">
                   <Button
                     variant="ghost"
                     size="sm"
                     onClick={() => setSelectedSong(song)}
-                    className="h-8 w-8 p-0 hover:bg-yellow-300"
+                    className="h-6 w-6 p-0 hover:bg-yellow-300"
                   >
-                    <Play className="h-4 w-4 text-gray-700" />
+                    <Play className="h-3 w-3 text-gray-700" />
                   </Button>
                   <div>
-                    <span className="text-sm font-medium text-gray-800">{song.title} - </span>
-                    <span className="text-sm italic text-gray-700">{song.artist}</span>
+                    <span className="text-xs font-medium text-gray-800">{song.title} - </span>
+                    <span className="text-xs italic text-gray-700">{song.artist}</span>
                   </div>
                 </div>
-                <span className="text-sm text-gray-600">{song.duration}</span>
+                <span className="text-xs text-gray-600">{song.duration}</span>
               </div>
             ))}
           </div>
@@ -215,20 +215,20 @@ const Index = () => {
         </div>
 
         {/* Right Panel - Testimonials */}
-        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-6 overflow-y-auto">
-          <h2 className="text-lg font-semibold mb-4 text-gray-800">
+        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto">
+          <h2 className="text-base font-semibold mb-2 text-gray-800">
             We love Impressing people...
           </h2>
-          <div className="space-y-6">
+          <div className="space-y-3">
             {testimonials.map((testimonial) => (
-              <div key={testimonial.id} className="bg-yellow-100/70 p-4 rounded-lg">
-                <h3 className="font-semibold text-gray-800 mb-2 underline">
+              <div key={testimonial.id} className="bg-yellow-100/70 p-2 rounded-lg">
+                <h3 className="text-sm font-semibold text-gray-800 mb-1 underline">
                   {testimonial.title}
                 </h3>
-                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                <p className="text-xs text-gray-700 mb-2 leading-relaxed">
                   "{testimonial.content}"
                 </p>
-                <p className="text-right text-sm text-gray-600">
+                <p className="text-right text-xs text-gray-600">
                   - {testimonial.author}
                 </p>
               </div>
