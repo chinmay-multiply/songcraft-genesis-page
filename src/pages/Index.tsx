@@ -115,7 +115,7 @@ const Index = () => {
   return <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Header */}
       <div className="flex justify-between items-center p-4 bg-slate-50 rounded-none">
-        <div></div>
+        <img src="/lovable-uploads/26468dd4-0755-4cbc-9d59-2d19f2ae7e2a.png" alt="Melodia" className="h-8" />
         
         <Button variant="outline" className="px-6 bg-yellow-200 hover:bg-yellow-100 text-slate-700 text-base font-thin">
           Login
