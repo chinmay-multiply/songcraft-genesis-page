@@ -195,8 +195,12 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Media Player Modal */}
-      {selectedSong && <MediaPlayer song={selectedSong} onClose={() => setSelectedSong(null)} />}
+      {/* Bottom Media Player */}
+      {selectedSong && (
+        <div className="border-t bg-background p-4">
+          <MediaPlayer song={selectedSong} onClose={() => setSelectedSong(null)} />
+        </div>
+      )}
 
       {/* Form Modal */}
       <FormModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} title={formTitle} />

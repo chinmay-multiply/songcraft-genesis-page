@@ -81,93 +81,68 @@ export const MediaPlayer = ({ song, onClose }: MediaPlayerProps) => {
   };
 
   return (
-    <div className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-      <div className="bg-card border border-border rounded-lg p-6 max-w-2xl w-full shadow-elegant">
-        <div className="flex justify-between items-start mb-4">
-          <div>
-            <h3 className="text-lg font-semibold text-foreground">{song.title}</h3>
-            <p className="text-muted-foreground">{song.artist}</p>
-          </div>
-          <Button variant="ghost" size="sm" onClick={onClose}>
-            ×
-          </Button>
+    <div className="bg-card border border-border rounded-lg p-4 shadow-elegant">
+      <div className="flex justify-between items-start mb-3">
+        <div>
+          <h4 className="text-base font-semibold text-foreground">{song.title}</h4>
+          <p className="text-sm text-muted-foreground">{song.artist}</p>
         </div>
+        <Button variant="ghost" size="sm" onClick={onClose} className="h-6 w-6 p-0">
+          ×
+        </Button>
+      </div>
 
-        {showVideo && song.videoUrl && (
-          <video
-            ref={videoRef}
-            className="w-full h-48 bg-muted rounded-lg mb-4"
-            muted={isMuted}
+      <audio ref={audioRef} src={song.audioUrl || "/placeholder-audio.mp3"} />
+
+      <div className="space-y-3">
+        <div className="flex items-center gap-3">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={togglePlay}
+            className="h-8 w-8 rounded-full bg-primary hover:bg-primary/90"
           >
-            <source src={song.videoUrl} type="video/mp4" />
-          </video>
-        )}
+            {isPlaying ? (
+              <Pause className="h-4 w-4 text-primary-foreground" />
+            ) : (
+              <Play className="h-4 w-4 text-primary-foreground ml-0.5" />
+            )}
+          </Button>
 
-        <audio ref={audioRef} src={song.audioUrl || "/placeholder-audio.mp3"} />
+          <div className="flex-1">
+            <Slider
+              value={[currentTime]}
+              max={duration || 100}
+              step={1}
+              className="w-full"
+              onValueChange={(value) => {
+                if (audioRef.current) {
+                  audioRef.current.currentTime = value[0];
+                  setCurrentTime(value[0]);
+                }
+              }}
+            />
+            <div className="flex justify-between text-xs text-muted-foreground mt-1">
+              <span>{formatTime(currentTime)}</span>
+              <span>{formatTime(duration)}</span>
+            </div>
+          </div>
 
-        <div className="space-y-4">
-          <div className="flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={togglePlay}
-              className="h-12 w-12 rounded-full bg-primary hover:bg-primary/90"
-            >
-              {isPlaying ? (
-                <Pause className="h-6 w-6 text-primary-foreground" />
+          <div className="flex items-center gap-2">
+            <Button variant="ghost" size="sm" onClick={toggleMute} className="h-6 w-6 p-0">
+              {isMuted ? (
+                <VolumeX className="h-3 w-3" />
               ) : (
-                <Play className="h-6 w-6 text-primary-foreground ml-0.5" />
+                <Volume2 className="h-3 w-3" />
               )}
             </Button>
-
-            <div className="flex-1">
-              <Slider
-                value={[currentTime]}
-                max={duration || 100}
-                step={1}
-                className="w-full"
-                onValueChange={(value) => {
-                  if (audioRef.current) {
-                    audioRef.current.currentTime = value[0];
-                    setCurrentTime(value[0]);
-                  }
-                }}
-              />
-              <div className="flex justify-between text-xs text-muted-foreground mt-1">
-                <span>{formatTime(currentTime)}</span>
-                <span>{formatTime(duration)}</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2">
-              <Button variant="ghost" size="sm" onClick={toggleMute}>
-                {isMuted ? (
-                  <VolumeX className="h-4 w-4" />
-                ) : (
-                  <Volume2 className="h-4 w-4" />
-                )}
-              </Button>
-              <Slider
-                value={volume}
-                max={100}
-                step={1}
-                className="w-24"
-                onValueChange={handleVolumeChange}
-              />
-            </div>
-
-            {song.videoUrl && (
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={() => setShowVideo(!showVideo)}
-              >
-                <Maximize2 className="h-4 w-4 mr-2" />
-                {showVideo ? 'Hide Video' : 'Show Video'}
-              </Button>
-            )}
+            <Slider
+              value={volume}
+              max={100}
+              step={1}
+              className="w-16"
+              onValueChange={handleVolumeChange}
+            />
           </div>
         </div>
       </div>
