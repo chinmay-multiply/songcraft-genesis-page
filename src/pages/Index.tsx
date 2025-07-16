@@ -148,6 +148,7 @@ const Index = () => {
         {/* Center Panel - Create Custom Song */}
         <div className="w-1/3 flex flex-col justify-center items-center p-8 bg-slate-50 my-0">
           <h1 className="text-4xl font-bold text-gray-800 mb-8 -mt-24 py-0 my-[100px]">Create Custom</h1>
+          <img src="/lovable-uploads/5f3e504e-cfb1-4ea9-9099-a08b391dbf92.png" alt="Lullaby" className="mx-auto mb-6" />
           <div className="text-center max-w-md">
             
             
