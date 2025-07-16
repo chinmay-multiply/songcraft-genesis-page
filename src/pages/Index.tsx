@@ -1,7 +1,7 @@
+
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Play, Star, Quote } from "lucide-react";
+import { Play } from "lucide-react";
 import { SpinningReel } from "@/components/SpinningReel";
 import { MediaPlayer } from "@/components/MediaPlayer";
 import { FormModal } from "@/components/FormModal";
@@ -16,58 +16,94 @@ const Index = () => {
   const customCreations = [
     {
       id: 1,
-      title: "Sunset Dreams",
-      artist: "AI Composer",
-      duration: "3:24",
+      title: "Song 1",
+      artist: "Lullaby",
+      duration: "1:20",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 2,
-      title: "Urban Nights",
-      artist: "Digital Maestro",
-      duration: "4:12",
+      title: "Song 2",
+      artist: "Shayari",
+      duration: "0:40",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 3,
-      title: "Ocean Waves",
-      artist: "Melodia AI",
-      duration: "2:58",
+      title: "Song 3",
+      artist: "Birthday Song",
+      duration: "1:10",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 4,
-      title: "Mountain Echo",
-      artist: "Synthetic Sounds",
-      duration: "3:45",
+      title: "Song 4",
+      artist: "Poem",
+      duration: "0:55",
+      audioUrl: "/placeholder-audio.mp3"
+    },
+    {
+      id: 5,
+      title: "Song 5",
+      artist: "Wedding Anthem",
+      duration: "2:30",
+      audioUrl: "/placeholder-audio.mp3"
+    },
+    {
+      id: 6,
+      title: "Song 6",
+      artist: "Farewell Song",
+      duration: "3:05",
+      audioUrl: "/placeholder-audio.mp3"
+    },
+    {
+      id: 7,
+      title: "Song 7",
+      artist: "Party Anthem",
+      duration: "1:34",
+      audioUrl: "/placeholder-audio.mp3"
+    },
+    {
+      id: 8,
+      title: "Song 8",
+      artist: "Thank You Song",
+      duration: "1:42",
+      audioUrl: "/placeholder-audio.mp3"
+    },
+    {
+      id: 9,
+      title: "Song 9",
+      artist: "Apology",
+      duration: "2:00",
+      audioUrl: "/placeholder-audio.mp3"
+    },
+    {
+      id: 10,
+      title: "Song 10",
+      artist: "Self written",
+      duration: "2:40",
       audioUrl: "/placeholder-audio.mp3"
     }
   ];
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Music Producer",
-      content: "Melodia transformed my creative process. The AI-generated compositions are incredibly sophisticated and unique. I've never experienced such seamless music creation.",
-      rating: 5
+      id: 1,
+      title: "Sample Testimonial #1",
+      content: "as dfadf asd fasdf asd fasdf Asdfa sdf asdfadsfa asd fasdfda sf asdf adfa df",
+      author: "asdfadsfads"
     },
     {
-      name: "Michael Chen",
-      role: "Singer-Songwriter",
-      content: "As a professional musician, I was skeptical at first. But Melodia's ability to understand emotion and translate it into beautiful melodies is simply phenomenal.",
-      rating: 5
+      id: 2,
+      title: "Sample Testimonial #2",
+      content: "as dfadf asd fasdf asd fasdf Asdfa sdf asdfadsfa asd fasdfda sf asdf adfa df",
+      author: "asdfadsfads"
     },
     {
-      name: "Emily Rodriguez",
-      role: "Content Creator",
-      content: "The custom songs I create with Melodia perfectly capture the mood for my videos. It's like having a personal composer who understands exactly what I need.",
-      rating: 5
-    },
-    {
-      name: "David Thompson",
-      role: "Wedding Planner",
-      content: "Melodia helps me create personalized songs for couples that tell their unique love story. The emotional impact is incredible and my clients are always amazed.",
-      rating: 5
+      id: 3,
+      title: "Sample Testimonial #3",
+      content: "as dfadf asd fasdf asd fasdf Asdfa sdf asdfadsfa asd fasdfda sf asdf adfa df",
+      author: "asdfadsfads"
     }
   ];
 
@@ -89,118 +125,117 @@ const Index = () => {
   };
 
   return (
-    <div className="h-screen bg-background flex flex-col">
-      {/* Hero Header */}
-      <div className="relative py-8 text-center bg-gradient-primary/5">
-        <h1 className="text-4xl font-bold mb-2 bg-gradient-primary bg-clip-text text-transparent">
+    <div className="h-screen bg-background flex flex-col overflow-hidden">
+      {/* Header */}
+      <div className="flex justify-between items-center p-4 border-b border-border">
+        <div></div>
+        <h1 className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent">
           Melodia
         </h1>
-        <p className="text-sm text-muted-foreground max-w-md mx-auto px-4">
-          Create custom songs with the power of AI
-        </p>
+        <Button variant="outline" className="px-6">
+          Login
+        </Button>
       </div>
 
-      {/* Section 1: Custom Creations */}
-      <section className="flex-1 px-4 py-6">
-        <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
-          Some of our custom creations
-        </h2>
-        <div className="flex gap-4 overflow-x-auto pb-4 px-2">
-          {customCreations.map((song) => (
-            <Card key={song.id} className="min-w-[280px] bg-card border-border hover:shadow-glow transition-all duration-300">
-              <CardContent className="p-4">
-                <h3 className="font-semibold text-foreground mb-1 text-sm">{song.title}</h3>
-                <p className="text-muted-foreground text-xs mb-1">{song.artist}</p>
-                <p className="text-muted-foreground text-xs mb-3">{song.duration}</p>
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setSelectedSong(song)}
-                  className="w-full bg-primary/10 hover:bg-primary/20 border border-primary/20 h-8 text-xs"
-                >
-                  <Play className="h-3 w-3 mr-1" />
-                  Play
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-      </section>
-
-      {/* Section 2: Create Custom Song */}
-      <section className="flex-1 bg-secondary/30 px-4 py-6">
-        <div className="text-center max-w-4xl mx-auto">
-          <h2 className="text-2xl font-bold mb-6 text-foreground">
-            Create custom{" "}
-            <SpinningReel words={reelWords} className="text-2xl font-bold" />
+      {/* Main Content - Three Columns */}
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left Panel - Custom Creations */}
+        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-6 overflow-y-auto">
+          <h2 className="text-lg font-semibold mb-4 text-gray-800">
+            Some of our custom creations
           </h2>
-          
-          <div className="grid grid-cols-3 gap-3 mb-6">
-            <Button
-              variant="secondary"
-              onClick={() => handleFormOpen("a")}
-              className="h-16 text-xs text-wrap p-2 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
+          <div className="space-y-3">
+            {customCreations.map((song) => (
+              <div key={song.id} className="flex items-center justify-between group hover:bg-yellow-200/50 p-2 rounded">
+                <div className="flex items-center gap-3">
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => setSelectedSong(song)}
+                    className="h-8 w-8 p-0 hover:bg-yellow-300"
+                  >
+                    <Play className="h-4 w-4 text-gray-700" />
+                  </Button>
+                  <div>
+                    <span className="text-sm font-medium text-gray-800">{song.title} - </span>
+                    <span className="text-sm italic text-gray-700">{song.artist}</span>
+                  </div>
+                </div>
+                <span className="text-sm text-gray-600">{song.duration}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Center Panel - Create Custom Song */}
+        <div className="w-1/3 bg-background flex flex-col justify-center items-center p-8">
+          <div className="text-center max-w-md">
+            <h2 className="text-3xl font-bold mb-2 text-primary">
+              CREATE
+            </h2>
+            <h2 className="text-3xl font-bold mb-8 text-primary">
+              CUSTOM
+            </h2>
+            
+            {/* Spinning Reel for SONGS */}
+            <div className="border-4 border-foreground rounded-lg p-4 mb-8 bg-background">
+              <SpinningReel words={reelWords} className="text-4xl font-bold text-foreground" />
+            </div>
+            
+            <div className="space-y-4 mb-8">
+              <Button
+                variant="outline"
+                onClick={() => handleFormOpen("a")}
+                className="w-full h-12 text-sm bg-background border-2 border-muted-foreground text-muted-foreground hover:bg-muted"
+              >
+                1. Choose 'Music Type'
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => handleFormOpen("b")}
+                className="w-full h-12 text-sm bg-background border-2 border-muted-foreground text-muted-foreground hover:bg-muted"
+              >
+                2. Tell us 'What is the song about ?'
+              </Button>
+              <Button
+                variant="outline"
+                onClick={() => handleFormOpen("c")}
+                className="w-full h-12 text-sm bg-background border-2 border-muted-foreground text-muted-foreground hover:bg-muted"
+              >
+                3. Add personal touch
+              </Button>
+            </div>
+            
+            <Button 
+              className="w-32 h-12 bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold rounded-lg"
             >
-              What kind of music do you want it to be?
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => handleFormOpen("b")}
-              className="h-16 text-xs text-wrap p-2 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
-            >
-              What do you want it to be about?
-            </Button>
-            <Button
-              variant="secondary"
-              onClick={() => handleFormOpen("c")}
-              className="h-16 text-xs text-wrap p-2 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
-            >
-              Make your song special
+              Create
             </Button>
           </div>
-          
-          <Button 
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-8 py-3"
-          >
-            Create
-          </Button>
         </div>
-      </section>
 
-      {/* Section 3: Testimonials */}
-      <section className="flex-1 px-4 py-6">
-        <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
-          What our users say
-        </h2>
-        <div className="flex gap-4 overflow-x-auto pb-4 px-2">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="min-w-[300px] bg-card border-border hover:shadow-elegant transition-all duration-300">
-              <CardContent className="p-4">
-                <div className="flex mb-2">
-                  {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-3 w-3 fill-primary text-primary" />
-                  ))}
-                </div>
-                <blockquote className="text-muted-foreground mb-3 italic text-xs line-clamp-3">
-                  <Quote className="h-3 w-3 inline mr-1" />
-                  {testimonial.content}
-                </blockquote>
-                <div>
-                  <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
-                  <p className="text-xs text-muted-foreground">{testimonial.role}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+        {/* Right Panel - Testimonials */}
+        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-6 overflow-y-auto">
+          <h2 className="text-lg font-semibold mb-4 text-gray-800">
+            We love Impressing people...
+          </h2>
+          <div className="space-y-6">
+            {testimonials.map((testimonial) => (
+              <div key={testimonial.id} className="bg-yellow-100/70 p-4 rounded-lg">
+                <h3 className="font-semibold text-gray-800 mb-2 underline">
+                  {testimonial.title}
+                </h3>
+                <p className="text-sm text-gray-700 mb-3 leading-relaxed">
+                  "{testimonial.content}"
+                </p>
+                <p className="text-right text-sm text-gray-600">
+                  - {testimonial.author}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="py-3 bg-secondary/20 text-center">
-        <p className="text-muted-foreground text-xs">
-          © 2024 Melodia. Creating music with artificial intelligence.
-        </p>
-      </footer>
+      </div>
 
       {/* Media Player Modal */}
       {selectedSong && (
