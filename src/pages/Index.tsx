@@ -89,39 +89,36 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-primary opacity-10" />
-        <div className="relative container mx-auto px-4 py-20 text-center">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-primary bg-clip-text text-transparent">
-            Melodia
-          </h1>
-          <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Create custom songs with the power of AI. Transform your emotions, stories, and dreams into beautiful music.
-          </p>
-        </div>
+    <div className="h-screen bg-background flex flex-col">
+      {/* Hero Header */}
+      <div className="relative py-8 text-center bg-gradient-primary/5">
+        <h1 className="text-4xl font-bold mb-2 bg-gradient-primary bg-clip-text text-transparent">
+          Melodia
+        </h1>
+        <p className="text-sm text-muted-foreground max-w-md mx-auto px-4">
+          Create custom songs with the power of AI
+        </p>
       </div>
 
       {/* Section 1: Custom Creations */}
-      <section className="py-20 container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+      <section className="flex-1 px-4 py-6">
+        <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
           Some of our custom creations
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-4 overflow-x-auto pb-4 px-2">
           {customCreations.map((song) => (
-            <Card key={song.id} className="bg-card border-border hover:shadow-glow transition-all duration-300">
-              <CardContent className="p-6">
-                <h3 className="font-semibold text-foreground mb-2">{song.title}</h3>
-                <p className="text-muted-foreground text-sm mb-2">{song.artist}</p>
-                <p className="text-muted-foreground text-xs mb-4">{song.duration}</p>
+            <Card key={song.id} className="min-w-[280px] bg-card border-border hover:shadow-glow transition-all duration-300">
+              <CardContent className="p-4">
+                <h3 className="font-semibold text-foreground mb-1 text-sm">{song.title}</h3>
+                <p className="text-muted-foreground text-xs mb-1">{song.artist}</p>
+                <p className="text-muted-foreground text-xs mb-3">{song.duration}</p>
                 <Button
                   variant="ghost"
                   size="sm"
                   onClick={() => setSelectedSong(song)}
-                  className="w-full bg-primary/10 hover:bg-primary/20 border border-primary/20"
+                  className="w-full bg-primary/10 hover:bg-primary/20 border border-primary/20 h-8 text-xs"
                 >
-                  <Play className="h-4 w-4 mr-2" />
+                  <Play className="h-3 w-3 mr-1" />
                   Play
                 </Button>
               </CardContent>
@@ -131,43 +128,39 @@ const Index = () => {
       </section>
 
       {/* Section 2: Create Custom Song */}
-      <section className="py-20 bg-secondary/30">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-12 text-foreground">
+      <section className="flex-1 bg-secondary/30 px-4 py-6">
+        <div className="text-center max-w-4xl mx-auto">
+          <h2 className="text-2xl font-bold mb-6 text-foreground">
             Create custom{" "}
-            <SpinningReel words={reelWords} className="text-4xl font-bold" />
+            <SpinningReel words={reelWords} className="text-2xl font-bold" />
           </h2>
           
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-12">
+          <div className="grid grid-cols-3 gap-3 mb-6">
             <Button
               variant="secondary"
-              size="lg"
               onClick={() => handleFormOpen("a")}
-              className="h-20 text-wrap p-4 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
+              className="h-16 text-xs text-wrap p-2 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
             >
               What kind of music do you want it to be?
             </Button>
             <Button
               variant="secondary"
-              size="lg"
               onClick={() => handleFormOpen("b")}
-              className="h-20 text-wrap p-4 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
+              className="h-16 text-xs text-wrap p-2 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
             >
               What do you want it to be about?
             </Button>
             <Button
               variant="secondary"
-              size="lg"
               onClick={() => handleFormOpen("c")}
-              className="h-20 text-wrap p-4 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
+              className="h-16 text-xs text-wrap p-2 bg-gradient-secondary hover:bg-gradient-primary/20 border border-border"
             >
               Make your song special
             </Button>
           </div>
           
           <Button 
-            size="lg"
-            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-12 py-4 text-lg"
+            className="bg-gradient-primary hover:shadow-glow transition-all duration-300 px-8 py-3"
           >
             Create
           </Button>
@@ -175,25 +168,25 @@ const Index = () => {
       </section>
 
       {/* Section 3: Testimonials */}
-      <section className="py-20 container mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12 text-foreground">
+      <section className="flex-1 px-4 py-6">
+        <h2 className="text-2xl font-bold text-center mb-6 text-foreground">
           What our users say
         </h2>
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="flex gap-4 overflow-x-auto pb-4 px-2">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="bg-card border-border hover:shadow-elegant transition-all duration-300">
-              <CardContent className="p-6">
-                <div className="flex mb-4">
+            <Card key={index} className="min-w-[300px] bg-card border-border hover:shadow-elegant transition-all duration-300">
+              <CardContent className="p-4">
+                <div className="flex mb-2">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-primary text-primary" />
+                    <Star key={i} className="h-3 w-3 fill-primary text-primary" />
                   ))}
                 </div>
-                <blockquote className="text-muted-foreground mb-4 italic">
-                  <Quote className="h-4 w-4 inline mr-1" />
+                <blockquote className="text-muted-foreground mb-3 italic text-xs line-clamp-3">
+                  <Quote className="h-3 w-3 inline mr-1" />
                   {testimonial.content}
                 </blockquote>
                 <div>
-                  <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  <p className="font-semibold text-foreground text-sm">{testimonial.name}</p>
                   <p className="text-xs text-muted-foreground">{testimonial.role}</p>
                 </div>
               </CardContent>
@@ -203,8 +196,8 @@ const Index = () => {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 bg-secondary/20 text-center">
-        <p className="text-muted-foreground">
+      <footer className="py-3 bg-secondary/20 text-center">
+        <p className="text-muted-foreground text-xs">
           © 2024 Melodia. Creating music with artificial intelligence.
         </p>
       </footer>
