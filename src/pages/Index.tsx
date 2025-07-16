@@ -175,11 +175,11 @@ const Index = () => {
         </div>
 
         {/* Right Panel - Testimonials */}
-        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto">
-          <h2 className="mb-2 text-gray-800 font-bold text-lg text-center">
+        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-2 overflow-y-auto">
+          <h2 className="mb-1 text-gray-800 font-bold text-lg text-center">
             We love Impressing people...
           </h2>
-          <div className="space-y-3">
+          <div className="space-y-2">
             {testimonials.map(testimonial => <div key={testimonial.id} className="bg-yellow-100/70 p-2 rounded-lg">
                 <h3 className="text-sm font-semibold text-gray-800 mb-1 underline">
                   {testimonial.title}
