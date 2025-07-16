@@ -168,7 +168,7 @@ const Index = () => {
               </Button>
             </div>
             
-            <Button className="w-32 h-12 bg-yellow-400 hover:bg-yellow-500 text-gray-800 font-semibold rounded-lg">
+            <Button className="w-32 h-12 bg-black hover:bg-gray-800 text-white font-semibold rounded-lg">
               Create
             </Button>
           </div>
