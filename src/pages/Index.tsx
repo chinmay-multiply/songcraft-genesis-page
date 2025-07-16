@@ -148,12 +148,8 @@ const Index = () => {
         {/* Center Panel - Create Custom Song */}
         <div className="w-1/3 bg-background flex flex-col justify-center items-center p-8">
           <div className="text-center max-w-md">
-            <h2 className="text-3xl font-bold mb-2 text-primary">
-              CREATE
-            </h2>
-            <h2 className="text-3xl font-bold mb-8 text-primary">
-              CUSTOM
-            </h2>
+            
+            
             
             {/* Spinning Reel for SONGS */}
             <div className="border-4 border-foreground rounded-lg p-4 mb-8 bg-background">
