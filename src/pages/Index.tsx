@@ -16,70 +16,70 @@ const Index = () => {
   const customCreations = [
     {
       id: 1,
-      title: "Song 1",
+      title: "Sweet Dreams Tonight",
       artist: "Lullaby",
       duration: "1:20",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 2,
-      title: "Song 2",
+      title: "Dil Ki Baat",
       artist: "Shayari",
       duration: "0:40",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 3,
-      title: "Song 3",
+      title: "Another Year of Joy",
       artist: "Birthday Song",
       duration: "1:10",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 4,
-      title: "Song 4",
+      title: "Whispers of the Heart",
       artist: "Poem",
       duration: "0:55",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 5,
-      title: "Song 5",
+      title: "Two Hearts, One Love",
       artist: "Wedding Anthem",
       duration: "2:30",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 6,
-      title: "Song 6",
+      title: "Until We Meet Again",
       artist: "Farewell Song",
       duration: "3:05",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 7,
-      title: "Song 7",
+      title: "Dance All Night",
       artist: "Party Anthem",
       duration: "1:34",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 8,
-      title: "Song 8",
+      title: "Grateful Hearts",
       artist: "Thank You Song",
       duration: "1:42",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 9,
-      title: "Song 9",
+      title: "I'm Sorry, My Love",
       artist: "Apology",
       duration: "2:00",
       audioUrl: "/placeholder-audio.mp3"
     },
     {
       id: 10,
-      title: "Song 10",
+      title: "My Story, My Song",
       artist: "Self written",
       duration: "2:40",
       audioUrl: "/placeholder-audio.mp3"
