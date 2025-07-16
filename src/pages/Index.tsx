@@ -114,7 +114,7 @@ const Index = () => {
   };
   return <div className="h-screen bg-background flex flex-col overflow-hidden">
       {/* Header */}
-      <div className="flex justify-between items-center p-4 border-b border-border bg-slate-50">
+      <div className="flex justify-between items-center p-4 border-b border-border bg-slate-50 rounded-none">
         <div></div>
         
         <Button variant="outline" className="px-6">
