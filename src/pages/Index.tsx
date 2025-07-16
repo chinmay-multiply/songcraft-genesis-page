@@ -198,7 +198,7 @@ const Index = () => {
               <Button
                 variant="outline"
                 onClick={() => handleFormOpen("a")}
-                className="w-full h-12 text-sm bg-background border-2 border-muted-foreground text-muted-foreground hover:bg-muted"
+                className="w-full h-12 text-sm text-left bg-background border-2 border-muted-foreground text-muted-foreground hover:bg-muted"
               >
                 1. Choose 'Music Type'
               </Button>
