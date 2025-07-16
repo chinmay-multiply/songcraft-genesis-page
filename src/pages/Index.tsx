@@ -117,7 +117,7 @@ const Index = () => {
       <div className="flex justify-between items-center p-4 border-b border-border bg-slate-50 rounded-none">
         <div></div>
         
-        <Button variant="outline" className="px-6">
+        <Button variant="outline" className="px-6 bg-yellow-200 hover:bg-yellow-100">
           Login
         </Button>
       </div>
