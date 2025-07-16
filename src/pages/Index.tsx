@@ -117,7 +117,7 @@ const Index = () => {
       <div className="flex justify-between items-center p-4 border-b border-border bg-slate-50 rounded-none">
         <div></div>
         
-        <Button variant="outline" className="px-6">
+        <Button variant="outline" className="px-6 text-slate-700 bg-yellow-200 hover:bg-yellow-100 text-base font-thin">
           Login
         </Button>
       </div>
@@ -152,9 +152,7 @@ const Index = () => {
             
             
             {/* Spinning Reel for SONGS */}
-            <div className="border-4 border-foreground rounded-lg p-4 mb-8 bg-background">
-              <SpinningReel words={reelWords} className="text-4xl font-bold text-foreground" />
-            </div>
+            
             
             <div className="space-y-4 mb-8">
               <Button variant="outline" onClick={() => handleFormOpen("a")} className="w-full h-12 text-sm border-2 border-muted-foreground text-left bg-amber-300 hover:bg-amber-200 text-slate-700">
