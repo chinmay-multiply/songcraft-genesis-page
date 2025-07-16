@@ -126,7 +126,7 @@ const Index = () => {
       <div className="flex flex-1 overflow-hidden">
         {/* Left Panel - Custom Creations */}
         <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto">
-          <h2 className="text-base font-semibold mb-2 text-gray-800">
+          <h2 className="mb-2 text-gray-800 text-xl font-bold text-center">
             Some of our custom creations
           </h2>
           <div className="space-y-2">
@@ -146,15 +146,13 @@ const Index = () => {
         </div>
 
         {/* Center Panel - Create Custom Song */}
-        <div className="w-1/3 bg-background flex flex-col justify-center items-center p-8">
+        <div className="w-1/3 flex flex-col justify-center items-center p-8 bg-slate-50">
           <div className="text-center max-w-md">
             
             
             
             {/* Spinning Reel for SONGS */}
-            <div className="border-4 border-foreground rounded-lg p-4 mb-8 bg-background">
-              <SpinningReel words={reelWords} className="text-4xl font-bold text-foreground" />
-            </div>
+            
             
             <div className="space-y-4 mb-8">
               <Button variant="outline" onClick={() => handleFormOpen("a")} className="w-full h-12 text-sm border-2 border-muted-foreground text-left bg-amber-300 hover:bg-amber-200 text-slate-700">
@@ -176,7 +174,7 @@ const Index = () => {
 
         {/* Right Panel - Testimonials */}
         <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto">
-          <h2 className="text-base font-semibold mb-2 text-gray-800">
+          <h2 className="mb-2 text-gray-800 font-bold text-lg text-center">
             We love Impressing people...
           </h2>
           <div className="space-y-3">
