@@ -125,11 +125,11 @@ const Index = () => {
       {/* Main Content - Three Columns */}
       <div className="flex flex-1 overflow-hidden">
         {/* Left Panel - Custom Creations */}
-        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto">
+        <div className="w-1/3 bg-gradient-to-b from-yellow-200 to-yellow-300 p-3 overflow-y-auto flex flex-col">
           <h2 className="mb-2 text-gray-800 text-xl font-bold text-center">
             Some of our custom creations
           </h2>
-          <div className="space-y-2">
+          <div className="space-y-2 flex-1">
             {customCreations.map(song => <div key={song.id} className="flex items-center justify-between group hover:bg-yellow-200/50 p-1 rounded">
                 <div className="flex items-center gap-2">
                   <Button variant="ghost" size="sm" onClick={() => setSelectedSong(song)} className="h-6 w-6 p-0 hover:bg-yellow-300">
@@ -143,6 +143,13 @@ const Index = () => {
                 <span className="text-xs text-gray-600">{song.duration}</span>
               </div>)}
           </div>
+          
+          {/* Media Player in Left Section */}
+          {selectedSong && (
+            <div className="mt-2 border-t border-yellow-400/50 pt-2">
+              <MediaPlayer song={selectedSong} onClose={() => setSelectedSong(null)} />
+            </div>
+          )}
         </div>
 
         {/* Center Panel - Create Custom Song */}
@@ -195,10 +202,6 @@ const Index = () => {
         </div>
       </div>
 
-      {/* Bottom Media Player */}
-      {selectedSong && <div className="border-t bg-background p-4">
-          <MediaPlayer song={selectedSong} onClose={() => setSelectedSong(null)} />
-        </div>}
 
       {/* Form Modal */}
       <FormModal isOpen={isFormOpen} onClose={() => setIsFormOpen(false)} title={formTitle} />

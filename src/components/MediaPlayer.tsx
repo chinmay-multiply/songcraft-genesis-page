@@ -9,6 +9,7 @@ interface MediaPlayerProps {
     artist: string;
     audioUrl?: string;
     videoUrl?: string;
+    lyrics?: string;
   };
   onClose: () => void;
 }
@@ -23,6 +24,29 @@ export const MediaPlayer = ({ song, onClose }: MediaPlayerProps) => {
   
   const audioRef = useRef<HTMLAudioElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+
+  // Sample lyrics for demonstration - in a real app this would come from the song data
+  const sampleLyrics = song.lyrics || `Sweet dreams tonight, little one
+Close your eyes and rest
+The stars are shining bright above
+You are loved and blessed
+
+Sleep now, my darling
+Dream of happy things
+Tomorrow brings new adventures
+On happiness wings`;
+
+  const getLyricsAtTime = (time: number) => {
+    const lines = sampleLyrics.split('\n');
+    const timePerLine = duration / lines.length;
+    const currentLineIndex = Math.floor(time / timePerLine);
+    
+    return lines.map((line, index) => ({
+      text: line,
+      isActive: index === currentLineIndex,
+      isPast: index < currentLineIndex
+    }));
+  };
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -81,31 +105,31 @@ export const MediaPlayer = ({ song, onClose }: MediaPlayerProps) => {
   };
 
   return (
-    <div className="bg-card border border-border rounded-lg p-4 shadow-elegant">
-      <div className="flex justify-between items-start mb-3">
+    <div className="bg-yellow-100/80 border border-yellow-300 rounded-lg p-3 shadow-lg backdrop-blur-sm">
+      <div className="flex justify-between items-start mb-2">
         <div>
-          <h4 className="text-base font-semibold text-foreground">{song.title}</h4>
-          <p className="text-sm text-muted-foreground">{song.artist}</p>
+          <h4 className="text-sm font-semibold text-gray-800">{song.title}</h4>
+          <p className="text-xs text-gray-600">{song.artist}</p>
         </div>
-        <Button variant="ghost" size="sm" onClick={onClose} className="h-6 w-6 p-0">
+        <Button variant="ghost" size="sm" onClick={onClose} className="h-5 w-5 p-0 text-gray-600 hover:text-gray-800">
           ×
         </Button>
       </div>
 
       <audio ref={audioRef} src={song.audioUrl || "/placeholder-audio.mp3"} />
 
-      <div className="space-y-3">
-        <div className="flex items-center gap-3">
+      <div className="space-y-2">
+        <div className="flex items-center gap-2">
           <Button
             variant="ghost"
             size="sm"
             onClick={togglePlay}
-            className="h-8 w-8 rounded-full bg-primary hover:bg-primary/90"
+            className="h-7 w-7 rounded-full bg-yellow-400 hover:bg-yellow-300 text-gray-800"
           >
             {isPlaying ? (
-              <Pause className="h-4 w-4 text-primary-foreground" />
+              <Pause className="h-3 w-3" />
             ) : (
-              <Play className="h-4 w-4 text-primary-foreground ml-0.5" />
+              <Play className="h-3 w-3 ml-0.5" />
             )}
           </Button>
 
@@ -122,27 +146,47 @@ export const MediaPlayer = ({ song, onClose }: MediaPlayerProps) => {
                 }
               }}
             />
-            <div className="flex justify-between text-xs text-muted-foreground mt-1">
+            <div className="flex justify-between text-xs text-gray-600 mt-1">
               <span>{formatTime(currentTime)}</span>
               <span>{formatTime(duration)}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2">
-            <Button variant="ghost" size="sm" onClick={toggleMute} className="h-6 w-6 p-0">
+          <div className="flex items-center gap-1">
+            <Button variant="ghost" size="sm" onClick={toggleMute} className="h-5 w-5 p-0 text-gray-600">
               {isMuted ? (
-                <VolumeX className="h-3 w-3" />
+                <VolumeX className="h-2.5 w-2.5" />
               ) : (
-                <Volume2 className="h-3 w-3" />
+                <Volume2 className="h-2.5 w-2.5" />
               )}
             </Button>
             <Slider
               value={volume}
               max={100}
               step={1}
-              className="w-16"
+              className="w-12"
               onValueChange={handleVolumeChange}
             />
+          </div>
+        </div>
+
+        {/* Karaoke Lyrics */}
+        <div className="bg-yellow-50/50 rounded-md p-2 max-h-24 overflow-y-auto border border-yellow-200">
+          <div className="text-xs leading-tight space-y-0.5">
+            {getLyricsAtTime(currentTime).map((line, index) => (
+              <div
+                key={index}
+                className={`transition-all duration-300 ${
+                  line.isActive
+                    ? 'text-yellow-800 font-medium bg-yellow-200/50 px-1 rounded'
+                    : line.isPast
+                    ? 'text-gray-500'
+                    : 'text-gray-700'
+                }`}
+              >
+                {line.text || '\u00A0'}
+              </div>
+            ))}
           </div>
         </div>
       </div>
